@@ -37,6 +37,22 @@ To install on a server or another machine:
 npm install -g git+https://github.com/MervanKoncuk/mai-agent.git
 ```
 
+### 🔄 How to Update
+
+Since we are moving fast, here is how to get the latest agents:
+
+**If you used Option A (Local):**
+```bash
+cd /path/to/mai-agent
+git pull
+```
+
+**If you used Option B (GitHub):**
+Run the install command again:
+```bash
+npm install -g git+https://github.com/MervanKoncuk/mai-agent.git
+```
+
 ### 2. Turn Key (Init)
 
 Navigate to your project (new or existing) and wake up the agents:
