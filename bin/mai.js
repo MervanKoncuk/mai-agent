@@ -99,7 +99,7 @@ const runner = new WorkflowRunner();
 program
   .command('brainstorm [topic]')
   .description('Round-table discussion with C-Suite')
-  .option('-l, --language <lang>', 'Language (TR/EN)', 'TR')
+  .option('-l, --lang, --language <lang>', 'Language (TR/EN)', 'TR')
   .action(async (topic, options) => {
     await runner.run('mai-brainstorm', {
       topic,

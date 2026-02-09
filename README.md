@@ -21,9 +21,20 @@
 
 ### 1. Installation
 
+Since this is a private enterprise tool (not yet on public npm), use one of these methods:
+
+**Option A: Local Setup (Recommended for You)**
+If you have the source code on your machine:
 ```bash
-# Clone or Link
-npm install -g mai-agents
+cd /path/to/mai-agent
+npm link
+```
+*Now `mai` is available globally on your laptop.*
+
+**Option B: Install from GitHub**
+To install on a server or another machine:
+```bash
+npm install -g git+https://github.com/MervanKoncuk/mai-agent.git
 ```
 
 ### 2. Turn Key (Init)

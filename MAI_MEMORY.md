@@ -14,7 +14,10 @@
 **Default Language:** TR (Turkish)
 **Interface:** Hybrid (Terminal `mai ...` & Chat `/...`)
 **Default Language:** TR (Turkish)
+**Interface:** Hybrid (Terminal `mai ...` & Chat `/...`)
+**Protocol:** NATIVE CHAT (Slash commands like `/brainstorm` must be SIMULATED by the Agent, NOT executed in terminal)
 
+---
 ---
 
 ## 📊 Progress
