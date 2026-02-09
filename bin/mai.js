@@ -23,10 +23,21 @@ program
 
     const answers = await inquirer.prompt([
       {
+        type: 'list',
+        name: 'deploymentTarget',
+        message: 'Where do you want to deploy your agents?',
+        choices: [
+          'Create New Project (Folder)',
+          'Integrate into Current Project (Here)'
+        ],
+        default: 'Create New Project (Folder)'
+      },
+      {
         type: 'input',
         name: 'projectName',
         message: 'What is the name of your project?',
-        default: 'my-ai-agents'
+        default: 'my-ai-agents',
+        when: (answers) => answers.deploymentTarget === 'Create New Project (Folder)'
       },
       {
         type: 'list',
@@ -71,13 +82,64 @@ program
   .action(() => {
     console.log(chalk.yellow.bold('\n🤖 MAI Agents Help Center\n'));
     console.log(chalk.white('Available Workflows:'));
-    console.log('  /brainstorm [topic] --lang=[TR/EN]');
-    console.log('  /party [task]');
-    console.log('  /debug [error]');
-    console.log('  /test [scope]');
-    console.log('  /scenario [event]');
-    console.log('  /develop [feature]');
+    console.log('  mai brainstorm [topic] --lang=[TR/EN]');
+    console.log('  mai party [task]');
+    console.log('  mai debug [error]');
+    console.log('  mai test [scope]');
+    console.log('  mai scenario [event]');
+    console.log('  mai develop [feature]');
     console.log('\n');
+  });
+
+// --- INTERACTIVE WORKFLOW COMMANDS ---
+
+import { WorkflowRunner } from '../lib/workflow-runner.js';
+const runner = new WorkflowRunner();
+
+program
+  .command('brainstorm [topic]')
+  .description('Round-table discussion with C-Suite')
+  .option('-l, --language <lang>', 'Language (TR/EN)', 'TR')
+  .action(async (topic, options) => {
+    await runner.run('mai-brainstorm', {
+      topic,
+      language: options.language
+    });
+  });
+
+program
+  .command('party [task]')
+  .description('Rapid development cycle (Plan -> Code -> Test)')
+  .action(async (task) => {
+    await runner.run('mai-party', { task });
+  });
+
+program
+  .command('debug [error]')
+  .description('Analyze and fix errors')
+  .action(async (error) => {
+    await runner.run('mai-debug', { error });
+  });
+
+program
+  .command('test [scope]')
+  .description('Run QA & Security tests')
+  .action(async (scope) => {
+    await runner.run('mai-test', { scope });
+  });
+
+program
+  .command('scenario [event]')
+  .description('Simulate crisis or event')
+  .action(async (event) => {
+    await runner.run('mai-scenario', { event });
+  });
+
+program
+  .command('develop [feature]')
+  .description('End-to-end feature development')
+  .action(async (feature) => {
+    await runner.run('mai-develop', { feature });
   });
 
 program.parse(process.argv);

@@ -7,9 +7,12 @@
 
 ## 📍 Active Context
 
-**Current Phase:** Fully Operational
-**Current Task:** Awaiting Command (Debug/Test/Scenario/Develop)
-**Mode:** Active
+**Current Phase:** Calibration & Alignment
+**Current Phase:** Operational
+**Current Task:** Unified Interface (CLI + Chat Support)
+**Mode:** Senior Architect (Antigravity)
+**Default Language:** TR (Turkish)
+**Interface:** Hybrid (Terminal `mai ...` & Chat `/...`)
 **Default Language:** TR (Turkish)
 
 ---

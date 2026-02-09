@@ -5,7 +5,8 @@ description: Comprehensive system testing and security scanning
 # 🧪 Test Mode
 
 ## Trigger
-Use `/test [Scope]` to stress-test the system. Scope can be specific (e.g., "Auth Module") or global ("Full System").
+## Trigger
+Use `/test {{scope}}` to stress-test the system. Scope can be specific (e.g., "Auth Module") or global ("Full System").
 
 ## Protocol
 

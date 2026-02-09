@@ -5,7 +5,8 @@ description: Advanced debugging and error resolution workflow
 # 🐞 Debug Mode
 
 ## Trigger
-Use `/debug [Error ID or Description]` to initiate the resolution protocol.
+## Trigger
+Use `/debug {{error}}` to initiate the resolution protocol.
 
 ## Protocol
 

@@ -5,8 +5,9 @@ description: Round-table discussion with all agents analyzing a topic strategica
 # 🔵 MAI Brainstorm Workflow
 
 ## Trigger
-Use `/brainstorm [Topic]` to initiate a round-table discussion.
-**Language:** Uses `Default Language` from `MAI_MEMORY.md` (currently TR) unless `--lang=[Code]` is specified.
+## Trigger
+Use `/brainstorm {{topic}}` to initiate a round-table discussion.
+**Language:** Uses `Default Language` from `MAI_MEMORY.md` (currently {{language}}) unless specified.
 
 ## Process
 
@@ -19,10 +20,10 @@ System identifies the following participants:
 - **[SOCIAL]** (Growth)
 
 ### Step 2: 🗣️ The Dialogue (Round-Table)
-**System Instruction:** Generate a script where agents discuss the topic in **[Language]**.
+**System Instruction:** Generate a script where agents discuss the topic: "**{{topic}}**" in **{{language}}**.
 
 *Format:*
-> **[CEO]:** [Strategic view on the topic...]
+> **[CEO]:** [Strategic view on {{topic}}...]
 > **[SOCIAL]:** [Market potential...]
 > **[ARCHITECT]:** [Technical feasibility...]
 > ... (Debate continues) ...
@@ -31,7 +32,7 @@ System identifies the following participants:
 Compile the discussion into a final report:
 
 ```markdown
-## 📋 Brainstorm Report: [Topic]
+## 📋 Brainstorm Report: {{topic}}
 
 ### 🗣️ Discussion Highlights
 (Summary of the debate above)

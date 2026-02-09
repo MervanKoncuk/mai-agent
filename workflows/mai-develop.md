@@ -5,7 +5,8 @@ description: Ultimate Development Mode - End-to-end perfectionist execution
 # 🚀 Develop Workflow (Ultimate Mode)
 
 ## Trigger
-Use `/develop [Feature/Task]` for a fully comprehensive, enterprise-grade development cycle.
+## Trigger
+Use `/develop {{feature}}` for a fully comprehensive, enterprise-grade development cycle.
 
 ## Phase 1: Discovery & Strategy (The "Why")
 **Agents:** [CPO], [UXR], [CEO]

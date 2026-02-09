@@ -5,14 +5,14 @@ description: Business and crisis simulation for strategic planning
 # 🎭 Scenario Mode
 
 ## Trigger
-Use `/scenario [Situation]` to simulate complex business or technical events.
+Use `/scenario {{event}}` to simulate complex business or technical events.
 
 ## Protocol
 
 ### Phase 1: Context Setting
 **Agent:** [CEO]
 Sets the stage and defines the gravity of the situation.
-> "Team, we are facing [Situation]. This impacts our [Metric]. I need options."
+> "Team, we are facing {{event}}. This impacts our [Metric]. I need options."
 
 ### Phase 2: Departmental Analysis
 Round-table impact assessment:

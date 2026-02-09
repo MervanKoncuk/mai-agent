@@ -5,7 +5,7 @@ description: Execute the full development lifecycle from spec to launch
 # 🔴 Party Mode Workflow
 
 ## Trigger
-Use `/party [Task]` to execute the development lifecycle.
+Use `/party {{task}}` to execute the development lifecycle.
 
 ## Process
 
@@ -58,7 +58,7 @@ Present final report:
 ```markdown
 ## 🎉 Mission Accomplished
 
-**Task:** [Task Name]
+**Task:** {{task}}
 **Status:** Shipped ✅
 
 ### Deliverables
