@@ -61,6 +61,16 @@ program
     ]);
 
     await setupProject(answers);
+    await setupProject(answers);
+  });
+
+import { updateProject } from '../lib/update.js';
+
+program
+  .command('update')
+  .description('Update project workflows and docs to latest version')
+  .action(async () => {
+    await updateProject(process.cwd());
   });
 
 // --- PROJECT SCANNER ---
@@ -127,6 +137,7 @@ program
     console.log(chalk.yellow.bold('\n🤖 MAI Agents Help Center\n'));
     console.log(chalk.white('Core Commands:'));
     console.log('  mai init                    Initialize project');
+    console.log('  mai update                  Update workflows & docs');
     console.log('  mai scan                    Scan & cache project context');
     console.log('  mai status                  Check MAI Memory');
     console.log('  mai history                 List saved sessions');
