@@ -9,7 +9,9 @@ description: Ultimate Development Mode - End-to-end perfectionist execution
 Use `/develop {{feature}}` for a fully comprehensive, enterprise-grade development cycle.
 
 ## Phase 1: Discovery & Strategy (The "Why")
-**Agents:** [CPO], [UXR], [CEO]
+**Agents:**
+{{agents_list}}
+
 1.  **[CPO]** Define the Product Requirement Document (PRD).
 2.  **[UXR]** Validate against user personas and needs.
 3.  **[CEO]** Confirm ROI alignment.

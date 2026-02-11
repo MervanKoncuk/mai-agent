@@ -10,6 +10,9 @@ Use `/debug {{error}}` to initiate the resolution protocol.
 
 ## Protocol
 
+### Agent Team Assembly
+{{agents_list}}
+
 ### Phase 1: Replication (The "What")
 **Agent:** [QA]
 1.  Analyze the provided error log or description.

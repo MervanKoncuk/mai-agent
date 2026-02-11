@@ -9,6 +9,9 @@ Use `/scenario {{event}}` to simulate complex business or technical events.
 
 ## Protocol
 
+### Crisis Committee
+{{agents_list}}
+
 ### Phase 1: Context Setting
 **Agent:** [CEO]
 Sets the stage and defines the gravity of the situation.

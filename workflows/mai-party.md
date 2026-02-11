@@ -9,6 +9,10 @@ Use `/party {{task}}` to execute the development lifecycle.
 
 ## Process
 
+### Step 0: Agent Role Call
+System identifies the following participants:
+{{agents_list}}
+
 ### Step 1: [SYSTEM] Create User Story
 ```markdown
 **User Story:** As a [user type], I want to [action] so that [benefit].

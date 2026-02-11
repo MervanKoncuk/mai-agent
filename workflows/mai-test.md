@@ -10,6 +10,9 @@ Use `/test {{scope}}` to stress-test the system. Scope can be specific (e.g., "A
 
 ## Protocol
 
+### Testing Squad
+{{agents_list}}
+
 ### Phase 1: Functional Integrity
 **Agent:** [QA]
 1.  **Unit Tests:** Verify individual functions.

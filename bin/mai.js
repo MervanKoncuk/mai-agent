@@ -148,10 +148,11 @@ import { WorkflowRunner } from '../lib/workflow-runner.js';
 const runner = new WorkflowRunner();
 
 program
-  .command('brainstorm [topic]')
+  .command('brainstorm [topic...]')
   .description('Round-table discussion with C-Suite')
   .option('-l, --lang, --language <lang>', 'Language (TR/EN)', 'TR')
-  .action(async (topic, options) => {
+  .action(async (topicParts, options) => {
+    const topic = topicParts.join(' ');
     await runner.run('mai-brainstorm', {
       topic,
       language: options.language
@@ -159,37 +160,42 @@ program
   });
 
 program
-  .command('party [task]')
+  .command('party [task...]')
   .description('Rapid development cycle (Plan -> Code -> Test)')
-  .action(async (task) => {
+  .action(async (taskParts) => {
+    const task = taskParts.join(' ');
     await runner.run('mai-party', { task });
   });
 
 program
-  .command('debug [error]')
+  .command('debug [error...]')
   .description('Analyze and fix errors')
-  .action(async (error) => {
+  .action(async (errorParts) => {
+    const error = errorParts.join(' ');
     await runner.run('mai-debug', { error });
   });
 
 program
-  .command('test [scope]')
+  .command('test [scope...]')
   .description('Run QA & Security tests')
-  .action(async (scope) => {
+  .action(async (scopeParts) => {
+    const scope = scopeParts.join(' ');
     await runner.run('mai-test', { scope });
   });
 
 program
-  .command('scenario [event]')
+  .command('scenario [event...]')
   .description('Simulate crisis or event')
-  .action(async (event) => {
+  .action(async (eventParts) => {
+    const event = eventParts.join(' ');
     await runner.run('mai-scenario', { event });
   });
 
 program
-  .command('develop [feature]')
+  .command('develop [feature...]')
   .description('End-to-end feature development')
-  .action(async (feature) => {
+  .action(async (featureParts) => {
+    const feature = featureParts.join(' ');
     await runner.run('mai-develop', { feature });
   });
 
