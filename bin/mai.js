@@ -7,12 +7,14 @@ import path from 'path';
 import chalk from 'chalk';
 import { fileURLToPath } from 'url';
 import { setupProject } from '../lib/setup.js';
+import { scanProject, formatContext, saveContext } from '../lib/project-scanner.js';
+import { listSessions, loadSession, formatSessionList, formatSessionReplay } from '../lib/session-manager.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 program
-  .version('1.0.0')
+  .version('1.1.0')
   .description('MAI Agents - Autonomous Digital Workforce CLI');
 
 program
@@ -61,16 +63,58 @@ program
     await setupProject(answers);
   });
 
+// --- PROJECT SCANNER ---
+program
+  .command('scan')
+  .description('Scan project and generate context for agents')
+  .option('-d, --dir <path>', 'Target directory', '.')
+  .action(async (options) => {
+    const targetDir = path.resolve(options.dir);
+    console.log(chalk.blue.bold('\n🔍 MAI SCAN: Analyzing Project...\n'));
+
+    try {
+      const ctx = await scanProject(targetDir);
+      await saveContext(targetDir, ctx);
+
+      console.log(formatContext(ctx));
+      console.log(chalk.green('✔ Context saved to .mai/context.json'));
+      console.log(chalk.gray('  This context will be auto-injected into every workflow.\n'));
+    } catch (error) {
+      console.error(chalk.red(`❌ Scan Error: ${error.message}`));
+    }
+  });
+
+// --- SESSION MEMORY ---
+program
+  .command('history')
+  .description('List all saved workflow sessions')
+  .action(async () => {
+    const sessions = await listSessions(process.cwd());
+    console.log(formatSessionList(sessions));
+  });
+
+program
+  .command('replay <sessionId>')
+  .description('Replay a saved workflow session')
+  .action(async (sessionId) => {
+    const session = await loadSession(process.cwd(), sessionId);
+    if (session) {
+      console.log(formatSessionReplay(session));
+    } else {
+      console.log(chalk.red(`❌ Session not found: ${sessionId}`));
+      console.log(chalk.gray('Run `mai history` to see available sessions.'));
+    }
+  });
+
 program
   .command('status')
   .description('Check MAI Memory status')
   .action(() => {
-    // Logic to read MAI_MEMORY.md and print status
     console.log(chalk.green('Checking MAI Status...'));
     const memoryPath = path.join(process.cwd(), 'MAI_MEMORY.md');
     if (fs.existsSync(memoryPath)) {
       const content = fs.readFileSync(memoryPath, 'utf8');
-      console.log(content); // Simplified for MVP
+      console.log(content);
     } else {
       console.log(chalk.red('❌ MAI_MEMORY.md not found. Run `mai init` first.'));
     }
@@ -81,13 +125,20 @@ program
   .description('List all available agents and workflows')
   .action(() => {
     console.log(chalk.yellow.bold('\n🤖 MAI Agents Help Center\n'));
-    console.log(chalk.white('Available Workflows:'));
-    console.log('  mai brainstorm [topic] --lang=[TR/EN]');
-    console.log('  mai party [task]');
-    console.log('  mai debug [error]');
-    console.log('  mai test [scope]');
-    console.log('  mai scenario [event]');
-    console.log('  mai develop [feature]');
+    console.log(chalk.white('Core Commands:'));
+    console.log('  mai init                    Initialize project');
+    console.log('  mai scan                    Scan & cache project context');
+    console.log('  mai status                  Check MAI Memory');
+    console.log('  mai history                 List saved sessions');
+    console.log('  mai replay <#>              Replay a session');
+    console.log('');
+    console.log(chalk.white('Workflow Commands:'));
+    console.log('  mai brainstorm [topic]      Round-table discussion');
+    console.log('  mai party [task]            Rapid dev cycle');
+    console.log('  mai debug [error]           Error resolution');
+    console.log('  mai test [scope]            QA & Security tests');
+    console.log('  mai scenario [event]        Crisis simulation');
+    console.log('  mai develop [feature]       End-to-end development');
     console.log('\n');
   });
 
@@ -143,3 +194,4 @@ program
   });
 
 program.parse(process.argv);
+

@@ -13,11 +13,7 @@ Use `/brainstorm {{topic}}` to initiate a round-table discussion.
 
 ### Step 1: Agent Role Call
 System identifies the following participants:
-- **[CEO]** (Strategy)
-- **[ARCHITECT]** (Tech)
-- **[DEV]** (Implementation)
-- **[QA]** (Risk)
-- **[SOCIAL]** (Growth)
+{{agents_list}}
 
 ### Step 2: 🗣️ The Dialogue (Round-Table)
 **System Instruction:** Generate a script where agents discuss the topic: "**{{topic}}**" in **{{language}}**.
