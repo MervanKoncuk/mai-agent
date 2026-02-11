@@ -100,7 +100,22 @@ mai test "Payment Gateway Module"
 ### 🎭 **Crisis Simulation**
 Prepare for the worst.
 ```bash
+```bash
 mai scenario "AWS Region US-East-1 is DOWN"
+```
+
+### 🔍 **Context Injection**
+Make your agents smarter by scanning your project structure.
+```bash
+mai scan
+```
+> *Result: Agents now know your file tree, `package.json`, and frameworks.*
+
+### 📜 **Session Memory**
+Never lose a good idea. Every workflow is auto-saved.
+```bash
+mai history        # List past sessions
+mai replay <id>    # View a specific session
 ```
 
 ---
