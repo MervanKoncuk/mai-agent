@@ -140,10 +140,21 @@ When you run `mai init`, we add the following "Brain Stem" to your project:
 
 ```
 my-app/
-├── MAI_MEMORY.md       # 🧠 The Active Brain (Context & State)
-├── MAI_README.md       # 📖 Usage Instructions (If README exists)
-├── .agents/            # 👥 Agent Personas & Prompts
-├── workflows/          # ⚡ Agent Protocols (Brainstorm, Party, etc.)
+├── MAI_MEMORY.md           # 🧠 The Active Brain (Context & State)
+├── MAI_README.md           # 📖 Usage Instructions (If README exists)
+├── .agent/
+│   ├── agents/             # 👥 Agent Personas & Prompts
+│   │   ├── ceo.agent.md
+│   │   ├── architect.agent.md
+│   │   └── ...
+│   ├── workflows/          # ⚡ Agent Protocols (Brainstorm, Party, etc.)
+│   │   ├── brainstorm.md   # /brainstorm triggers this
+│   │   ├── develop.md      # /develop triggers this
+│   │   └── ...
+│   └── skills/             # 🛠️ Specialized Skills
+│       ├── api-design.skill.md
+│       └── ...
+├── .mai/                   # 📦 Cache & Sessions (auto-generated)
 └── ... (your files)
 ```
 

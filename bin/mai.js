@@ -164,7 +164,7 @@ program
   .option('-l, --lang, --language <lang>', 'Language (TR/EN)', 'TR')
   .action(async (topicParts, options) => {
     const topic = topicParts.join(' ');
-    await runner.run('mai-brainstorm', {
+    await runner.run('brainstorm', {
       topic,
       language: options.language
     });
@@ -175,7 +175,7 @@ program
   .description('Rapid development cycle (Plan -> Code -> Test)')
   .action(async (taskParts) => {
     const task = taskParts.join(' ');
-    await runner.run('mai-party', { task });
+    await runner.run('party', { task });
   });
 
 program
@@ -183,7 +183,7 @@ program
   .description('Analyze and fix errors')
   .action(async (errorParts) => {
     const error = errorParts.join(' ');
-    await runner.run('mai-debug', { error });
+    await runner.run('debug', { error });
   });
 
 program
@@ -191,7 +191,7 @@ program
   .description('Run QA & Security tests')
   .action(async (scopeParts) => {
     const scope = scopeParts.join(' ');
-    await runner.run('mai-test', { scope });
+    await runner.run('test', { scope });
   });
 
 program
@@ -199,7 +199,7 @@ program
   .description('Simulate crisis or event')
   .action(async (eventParts) => {
     const event = eventParts.join(' ');
-    await runner.run('mai-scenario', { event });
+    await runner.run('scenario', { event });
   });
 
 program
@@ -207,7 +207,7 @@ program
   .description('End-to-end feature development')
   .action(async (featureParts) => {
     const feature = featureParts.join(' ');
-    await runner.run('mai-develop', { feature });
+    await runner.run('develop', { feature });
   });
 
 program.parse(process.argv);
